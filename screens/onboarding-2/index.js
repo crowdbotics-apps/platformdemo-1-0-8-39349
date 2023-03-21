@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import React from "react";
 import { Text, View, StyleSheet, ScrollView, Image, Pressable } from "react-native";
 
@@ -59,7 +60,7 @@ const styles = StyleSheet.create({
     marginBottom: 5
   },
   imgContainer: {
-    height: 460,
+    height: 247,
     width: 343,
     backgroundColor: "#E5E5EA",
     borderRadius: 10,
@@ -68,6 +69,7 @@ const styles = StyleSheet.create({
 });
 
 const Button = params => {
+  const navigation = useNavigation();
   const btnStyle = {
     backgroundColor: params.outline ? "#fff" : "#000",
     borderColor: params.outline ? "#000" : "#fff",
@@ -76,12 +78,14 @@ const Button = params => {
   const btnText = {
     color: params.outline ? "#000" : "#fff"
   };
-  return <View style={buttonStyles.btnContainer}>
+  return <Pressable><Pressable onPress={() => {
+      navigation.navigate("alert", {});
+    }}><View style={buttonStyles.btnContainer}>
       <Pressable style={[buttonStyles.btn, btnStyle]} onPress={params.onPress}>
         <Text style={[buttonStyles.btnText, btnText]}>{params.buttonText}</Text>
         <View style={styles.childrenContainer}>{params.children}</View>
       </Pressable>
-    </View>;
+    </View></Pressable></Pressable>;
 };
 
 const buttonStyles = StyleSheet.create({
