@@ -1,14 +1,10 @@
 import { useNavigation } from "@react-navigation/native";
 import React from "react";
-import { Text, View, StyleSheet, ScrollView, Image, Pressable } from "react-native";
+import { Text, View, StyleSheet, ScrollView, Pressable } from "react-native";
 
 const Onboarding2 = () => {
   return <ScrollView style={styles.container}>
-      <View style={styles.header}>
-        <Image source={require("./assets/back.png")} style={styles.back} />
-        <Image source={require("./assets/slide.png")} style={styles.slide} />
-        <Text />
-      </View>
+      
 
       <View style={styles.imgContainer}>
       </View>
